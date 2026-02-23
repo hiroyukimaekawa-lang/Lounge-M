@@ -18,9 +18,14 @@
   </head>
   <body>
     <header class="hero" id="top">
+      <div class="hero-slides" aria-hidden="true">
+        <img class="hero-slide is-active" src="img/store-in.jpg" alt="" />
+        <img class="hero-slide" src="img/store-out.jpg" alt="" />
+        <img class="hero-slide" src="img/line_oa_chat_260212_182802_group_2.jpg" alt="" />
+        <img class="hero-slide" src="img/store-out2.jpg" alt="" />
+      </div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <p class="hero-kicker">Kagawa, Chigasaki</p>
         <h1>ラウンジM</h1>
         <p class="hero-copy">駅近でアットホームなスナックです</p>
         <div class="hero-buttons">
@@ -44,7 +49,7 @@
             お仕事帰りの一杯や、気の合う仲間との時間にぜひご利用ください。
           </p>
           <figure>
-            <img src="img/line_oa_chat_260212_182741_group_8.jpg" alt="ラウンジM入口" />
+            <img src="img/store-out.jpg" alt="ラウンジM入口" />
           </figure>
         </div>
       </section>
@@ -79,9 +84,9 @@
           <img src="img/line_oa_chat_260212_182802_group_0.jpg" alt="テーブル席" />
           <img src="img/line_oa_chat_260212_182802_group_1.jpg" alt="ボトル棚" />
           <img src="img/line_oa_chat_260212_182802_group_2.jpg" alt="カウンター席" />
-          <img src="img/line_oa_chat_260212_182741_group_9.jpg" alt="カウンター全景" />
-          <img src="img/line_oa_chat_260212_182741_group_7.jpg" alt="ラウンジMロゴ" />
-          <img src="img/line_oa_chat_260212_182741_group_8.jpg" alt="店舗入口" />
+          <img src="img/cast2.jpg" alt="店内の様子" />
+          <img src="img/store-out2.jpg" alt="ラウンジMロゴ" />
+          <img src="img/store-out.jpg" alt="店舗入口" />
         </div>
       </section>
 
@@ -159,5 +164,20 @@
       <p>© Lounge M</p>
       <a href="#top">ページ上部へ戻る</a>
     </footer>
+    <script>
+      (() => {
+        const slides = document.querySelectorAll(".hero-slide");
+        if (!slides.length) return;
+
+        let current = 0;
+        const nextSlide = () => {
+          slides[current].classList.remove("is-active");
+          current = (current + 1) % slides.length;
+          slides[current].classList.add("is-active");
+        };
+
+        setInterval(nextSlide, 4000);
+      })();
+    </script>
   </body>
 </html>
